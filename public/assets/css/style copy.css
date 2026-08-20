@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #b8282b;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Mencegah scrollbar di layar TV 4K */
+}
+
+.hero-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #b8282b;
+}
+
+/* --- LOGO (x: 80px, y: 69px | w: 184.4px, h: 50px) --- */
+.header {
+  position: absolute;
+  top: 6.38vh; /* 69px / 1080 * 100 */
+  left: 4.16vw; /* 80px / 1920 * 100 */
+  z-index: 10;
+}
+
+.logo-img {
+  width: 9.6vw; /* 184.4px / 1920 * 100 */
+  height: 4.62vh; /* 50px / 1080 * 100 */
+  display: block;
+}
+
+/* --- JUDUL (x: 228px, y: 436px | w: 615px, h: 75px) --- */
+.title {
+  position: absolute;
+  top: 40.37vh; /* 436px / 1080 * 100 */
+  left: 11.87vw; /* 228px / 1920 * 100 */
+  width: 32.03vw; /* 615px / 1920 * 100 */
+  height: 6.94vh; /* 75px / 1080 * 100 */
+
+  font-size: 3.125vw; /* 60px / 1920 * 100 (Font menyesuaikan layar TV) */
+  font-weight: 500;
+  line-height: 6.94vh;
+  color: #ffffff;
+}
+
+/* --- TOMBOL RUN PAYROLL --- */
+.btn-payroll {
+  position: absolute;
+  width: 32.03vw;
+  top: 51.85vh;
+  left: 11.87vw;
+  padding: 1.48vh 2.91vw;
+
+  font-size: 1.04vw;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #4b61dd;
+  border: none;
+  border-radius: 0.62vw;
+  cursor: pointer;
+}
+
+.btn-payroll:hover {
+  background-color: #f8fafc;
+  transform: translateY(-0.3vh) scale(1.01);
+}
+
+/* --- ILUSTRASI KANAN --- */
+.hero-image {
+  position: absolute;
+  top: 12.96vh;
+  left: 39.43vw;
+  width: 54.48vw;
+  height: 70.28vh;
+  z-index: 2;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Memastikan gambar tetap utuh dan tidak terdistorsi */
+  display: block;
+}
+
+/* Ikon Dekoratif Belakang */
+.card-calculator {
+  position: absolute;
+  top: 22.22vh;
+  left: 42.7vw;
+  width: 7.29vw;
+  z-index: 1;
+}
+
+.card-money {
+  position: absolute;
+  top: 38.88vh;
+  left: 66.66vw;
+  width: 6.77vw;
+  z-index: 1;
+}
+
+/* --- FOOTER --- */
+/* --- FOOTER --- */
+.footer {
+  position: absolute;
+  top: 87.04vh; /* y: 940px */
+  left: 85.99vw; /* x: 1651px */
+  z-index: 10;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.4vw;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-icon {
+  width: 1.4vw;
+  height: 1.4vw;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  opacity: 1;
+  transform: translateX(0.2vw);
+}

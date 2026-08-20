@@ -1,0 +1,1358 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #b8282b;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Mencegah scrollbar di layar TV 4K */
+}
+
+.hero-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #b8282b;
+}
+
+/* --- LOGO & NAV HEADER --- */
+/* --- HEADER CONTAINER --- */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Mencegah area kosong header menghalangi klik ke tombol/elemen lain */
+  z-index: 10;
+}
+
+/* --- LOGO (x: 80px, y: 69px | w: 184.4px, h: 50px) --- */
+.logo-img {
+  position: absolute;
+  top: 6.38vh; /* 69px / 1080 * 100 */
+  left: 4.16vw; /* 80px / 1920 * 100 */
+  width: 9.6vw; /* 184.4px / 1920 * 100 */
+  height: 4.62vh; /* 50px / 1080 * 100 */
+  display: block;
+  pointer-events: auto; /* Mengaktifkan kembali area interaksi logo */
+}
+
+/* --- TOMBOL HOME (x: 1785px, y: 66px | w: 55px, h: 55px) --- */
+.home-btn {
+  position: absolute;
+  top: 6.11vh; /* 66px / 1080 * 100 */
+  left: 92.97vw; /* 1785px / 1920 * 100 */
+
+  /* Kunci dimensi w: 55px & h: 55px agar selalu bulat 1:1 */
+  height: 5.09vh; /* 55px / 1080 * 100 */
+  aspect-ratio: 1 / 1; /* Menjamin width otomatis menyamai height (55px) secara presisi */
+
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  pointer-events: auto;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.home-icon {
+  width: 50%; /* Skala ikon di dalam lingkaran 55px */
+  height: 50%;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- PANAH NAVIGASI --- */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Dimensi presisi 55px (w: 55px & h: 55px) berbasis vh & aspect-ratio 1:1 */
+  height: 5.09vh; /* 55px / 1080 * 100 */
+  aspect-ratio: 1 / 1; /* Menjamin width otomatis menyamai height secara presisi */
+
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  pointer-events: auto;
+  z-index: 20;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.prev-arrow {
+  left: 1.5vw;
+}
+
+.next-arrow {
+  right: 1.5vw;
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+  /* Menjaga posisi vertikal 50% tetap aman saat terjadi efek zoom/scale */
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Style Ikon di Dalam Tombol Panah */
+.nav-arrow img,
+.nav-arrow .arrow-img,
+.nav-arrow svg {
+  width: 100%; /* Skala ikon di dalam lingkaran 55px */
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- SLIDER MANAGEMENT --- */
+.slider-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.6s ease-in-out,
+    visibility 0.6s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- JUDUL (x: 228px, y: 436px | w: 615px, h: 75px) --- */
+.title {
+  position: absolute;
+  top: 40.37vh;
+  left: 11.87vw;
+  width: 32.03vw;
+  height: 6.94vh;
+  font-size: 3.125vw;
+  font-weight: 500;
+  line-height: 6.94vh;
+  color: #ffffff;
+}
+
+/* --- TOMBOL RUN PAYROLL --- */
+.btn-payroll {
+  position: absolute;
+  width: 32.03vw;
+  top: 51.85vh;
+  left: 11.87vw;
+  padding: 1.48vh 0;
+  text-align: center;
+
+  font-size: 1.04vw;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #4b61dd;
+  border: none;
+  border-radius: 0.62vw;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-payroll:hover {
+  background-color: #f8fafc;
+  transform: translateY(-0.3vh) scale(1.01);
+}
+
+/* --- ILUSTRASI KANAN --- */
+.hero-image {
+  position: absolute;
+  top: 12.96vh;
+  left: 39.43vw;
+  width: 54.48vw;
+  height: 70.28vh;
+  z-index: 2;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Sembunyikan semua slide secara default */
+.slide {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Tampilkan hanya slide yang aktif */
+.slide.active {
+  display: flex !important;
+}
+
+/* --- SLIDE 2 --- */
+.modal-card {
+  position: absolute;
+  top: 15.65vh; /* y: 169px / 1080 * 100 */
+  left: 26.56vw; /* x: 510px / 1920 * 100 */
+  width: 46.87vw; /* w: 900px / 1920 * 100 */
+  height: 62.5vh; /* h: 675px / 1080 * 100 */
+
+  /* Hilangkan padding & background bawaan agar gambar tampil utuh */
+  padding: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: modalSlide 0.5s ease;
+}
+
+/* GAMBAR MODAL UI */
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes modalSlide {
+  from {
+    transform: translateY(2vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.step-wizard {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  margin-bottom: 1.5vw;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  font-size: 0.9vw;
+  color: #888;
+}
+
+.step.completed span {
+  background: #22c55e;
+  color: white;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step.active {
+  color: #b8282b;
+  font-weight: 600;
+}
+
+.step.active span {
+  border: 2px solid #b8282b;
+  color: #b8282b;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-grid {
+  display: flex;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 1vw;
+  border-radius: 0.6vw;
+  margin-bottom: 1vw;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85vw;
+}
+
+.info-box .label {
+  color: #666;
+}
+.highlight-text {
+  color: #b8282b;
+  font-size: 1.1vw;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85vw;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 0.6vw;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-action-btn {
+  width: 100%;
+  background-color: #4b61dd;
+  color: #ffffff;
+  border: none;
+  padding: 0.8vw;
+  font-size: 1vw;
+  font-weight: 600;
+  border-radius: 0.6vw;
+  margin-top: 1vw;
+  cursor: pointer;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 8vh;
+  width: 100%;
+  text-align: center;
+  font-size: 1.8vw;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.slide-content-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 2vw;
+}
+
+/* --- SLIDE 3 BASE CONTAINER --- */
+/* ==========================================
+   SLIDE 3 STYLING
+   ========================================== */
+#slide-3 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- TABEL UTAMA (X: 548px, Y: 225px | W: 825px, H: 618.75px) --- */
+.slide3-main-card {
+  position: absolute;
+  left: 28.54vw; /* 548px / 1920 * 100 */
+  top: 20.83vh; /* 225px / 1080 * 100 */
+  width: 42.97vw; /* 825px / 1920 * 100 */
+  height: 57.29vh; /* 618.75px / 1080 * 100 */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.data-sync-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* --- FLOATING CARDS BASE --- */
+.floating-card {
+  position: absolute;
+  width: 18.49vw;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  z-index: 5;
+}
+
+/* Posisi Kartu Kiri Atas */
+.float-top-left {
+  left: 12.29vw;
+  top: 34.22vh;
+}
+
+/* Posisi Kartu Kiri Bawah */
+.float-bottom-left {
+  left: 12.29vw;
+  top: 56.89vh;
+}
+
+/* Posisi Kartu Kanan */
+.float-right {
+  left: 65.57vw;
+  top: 48.8vh;
+}
+
+/* --- GAMBAR KONTEN KARTU --- */
+.card-body-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0.8vw 1.5vw rgba(0, 0, 0, 0.12));
+}
+
+/* --- GAMBAR LOGO MENGAMBANG --- */
+.card-logo-img {
+  position: absolute;
+  top: -1.6vw;
+  left: 2.5vw;
+  width: 3.2vw;
+  height: auto;
+  z-index: 10;
+  transform: translate(-30%, -30%);
+  filter: drop-shadow(0 0.4vw 0.8vw rgba(0, 0, 0, 0.2));
+}
+
+/* Logo khusus kartu kanan */
+.float-right .card-logo-img {
+  left: auto;
+  right: 3.2vw;
+  transform: translate(30%, -30%);
+}
+
+/* --- ANIMASI MUNCUL BERSAMAAN --- */
+#slide-3 .floating-card {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  will-change: transform, opacity;
+}
+
+#slide-3.active .floating-card {
+  animation: floatPopIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes floatPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --- SLIDE 4 BASE --- */
+#slide-4 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTAINER CARD UTAMA */
+.slide4-main-card {
+  position: absolute;
+  left: 28.54vw; /* 548px / 1920 * 100 */
+  top: 15.83vh; /* Presisi posisi tengah */
+  width: 42.97vw; /* 825px / 1920 * 100 */
+  background: #fafafa;
+  border-radius: 1.5vw;
+  padding: 2vw;
+  box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.run-payroll-title {
+  text-align: center;
+  font-size: 1vw;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5vw;
+}
+
+/* STEPPER HEADER (1 Setup, 2 Review, 3 Summary) */
+.stepper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4vw;
+}
+
+.step-icon {
+  width: 1.8vw;
+  height: 1.8vw;
+  border-radius: 50%;
+  background: #e52320;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon.current {
+  background: #ffffff;
+  border: 2px solid #e52320;
+  color: #e52320;
+  font-weight: 700;
+  font-size: 0.9vw;
+}
+
+.step-label {
+  font-size: 0.75vw;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.step-label.active {
+  color: #e52320;
+  font-weight: 700;
+}
+
+.step-line {
+  width: 4vw;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 0.8vw;
+  margin-bottom: 1.2vw;
+}
+
+.step-line.active {
+  background: #e52320;
+}
+
+/* INNER WHITE CARD (PROGRESS AREA) */
+.process-inner-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.2vw;
+  padding: 3vw 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0.4vw 1.2vw rgba(0, 0, 0, 0.03);
+}
+
+/* CIRCULAR PROGRESS SVG */
+.progress-circle-container {
+  position: relative;
+  width: 9vw;
+  height: 9vw;
+  margin-bottom: 1.5vw;
+}
+
+.progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Memutar agar progress mulai dari atas */
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #f3f4f6;
+  stroke-width: 6;
+}
+
+.circle-bar {
+  fill: none;
+  stroke: #e52320;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 326.72; /* keliling lingkaran (2 * PI * 52) */
+  stroke-dashoffset: 326.72; /* posisi awal 0% */
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.progress-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* TEKS PROSES BAWAH CIRCLE */
+.process-title {
+  font-size: 1.25vw;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5vw;
+}
+
+.process-subtitle {
+  font-size: 0.9vw;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ==========================================
+   SLIDE 6 - KODE LENGKAP + ANIMASI MASUK
+   ========================================== */
+
+/* 1. Pembungkus Utama Slide 6 */
+#slide-6.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#slide-6 .slide6-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Teks "Payroll disbursement" (x: 236px, y: 486px, size: 45px) */
+.disbursement-title {
+  position: absolute;
+  left: 12.29vw; /* x: 236px */
+  top: 45vh; /* y: 486px */
+  font-family: "Inter", sans-serif;
+  font-size: 2.34vw; /* 45px */
+  font-weight: 500; /* Inter Medium */
+  color: #ffffff;
+  line-height: 1.15;
+  text-align: left;
+  margin: 0;
+  z-index: 10;
+
+  /* Kondisi Awal Sebelum Aktif (Tersembunyi & Bergeser ke Kiri) */
+  opacity: 0;
+  transform: translateX(-40px);
+  will-change: transform, opacity;
+}
+
+/* 3. Hero Image Container (x: 672px, y: 187px, w: 993.39px, h: 705.67px) */
+.disbursement-hero {
+  position: absolute;
+  left: 35vw; /* x: 672px */
+  top: 17.31vh; /* y: 187px */
+  width: 51.74vw; /* w: 993.39px */
+  height: 65.34vh; /* h: 705.67px */
+  z-index: 5;
+
+  /* Kondisi Awal Sebelum Aktif (Tersembunyi & Agak Mencilik/Zoom Out) */
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.disbursement-hero img,
+.disbursement-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================
+   TRIGGER ANIMASI SAAT SLIDE 6 AKTIF
+   ========================================== */
+
+/* Animasi Teks: Slide in dari Kiri (Durasi: 0.8s) */
+#slide-6.active .disbursement-title {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+/* Animasi Hero Image: Zoom In & Fade In (Durasi: 0.9s, Delay: 0.3s) */
+#slide-6.active .disbursement-hero {
+  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* ==========================================
+   KEYFRAMES ANIMASI
+   ========================================== */
+
+/* Keyframe Teks */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keyframe Gambar Hero */
+@keyframes zoomInHero {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   1. PEMBUNGKUS UTAMA SLIDE 7
+   ========================================== */
+
+#slide-7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+#slide-7.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* ==========================================
+   2. GAMBAR BANK CARD
+   (x: 554.34px, y: 215.27px, w: 810.66px, h: 458.28px)
+   ========================================== */
+
+.slide7-container {
+  position: absolute;
+  left: 28.87vw; /* x: 554.34px */
+  top: 19.93vh; /* y: 215.27px */
+  width: 42.22vw; /* w: 810.66px */
+  height: 42.43vh; /* h: 458.28px */
+  z-index: 5;
+
+  /* Kondisi Awal Sebelum Aktif */
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.bank-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================
+   3. TEKS CAPTION UTAMA (h2) - CENTER X
+   (y: 793px)
+   ========================================== */
+
+#slide-7 .slide-caption {
+  position: absolute;
+  left: 50%;
+  top: 73.42vh; /* y: 793px */
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.8vw;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 10;
+
+  /* Kondisi Awal Sebelum Aktif */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   4. NOTE / CATATAN BAWAH (p.slide-note) - CENTER X & TIDAK BOLD
+   (y: 928px | Inter Italic 30px Regular/Light)
+   ========================================== */
+
+#slide-7 .slide-note {
+  position: absolute;
+  left: 50%;
+  top: 85.93vh; /* y: 928px */
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.56vw; /* 30px */
+  font-style: italic; /* Inter Italic */
+  font-weight: 300; /* Dibuat lebih tipis/tidak bold (300 = Light, 400 = Regular) */
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.3;
+  margin: 0;
+  z-index: 10;
+
+  /* Kondisi Awal Sebelum Aktif */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   5. TRIGGER ANIMASI SAAT SLIDE 7 AKTIF
+   ========================================== */
+
+#slide-7.active .slide7-container {
+  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-7.active .slide-caption {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+#slide-7.active .slide-note {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.45s forwards;
+}
+
+/* ==========================================
+   6. KEYFRAMES ANIMASI
+   ========================================== */
+
+@keyframes fadeInUpCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ==========================================
+   SLIDE 8 STYLES
+   ========================================== */
+
+#slide-8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+/* Penampil saat slide 8 aktif */
+#slide-8.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* ==========================================
+   1. GAMBAR LOGO GROUP
+   (x: 627px, y: 276px, w: 504.6px, h: 528.31px)
+   ========================================== */
+
+.slide8-container {
+  position: absolute;
+  left: 32.656vw; /* x: 627px */
+  top: 25.555vh; /* y: 276px */
+  width: 26.281vw; /* w: 504.6px */
+  height: 48.917vh; /* h: 528.31px */
+  z-index: 5;
+
+  /* Condition awal sebelum animasi */
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.slide8-container .logo-group-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================
+   2. TEKS CAPTION UTAMA (h2) - CENTER X
+   ========================================== */
+
+#slide-8 .slide-caption {
+  position: absolute;
+  left: 50%;
+  top: 76.85vh; /* Posisikan di bawah gambar (y: 830px) */
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.8vw;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 10;
+
+  /* Condition awal sebelum animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   3. ANIMASI SAAT SLIDE 8 AKTIF
+   ========================================== */
+
+/* Gambar logo group: Zoom In */
+#slide-8.active .slide8-container {
+  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+/* Teks caption: Fade In Up */
+#slide-8.active .slide-caption {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* Keyframe Animasi Center X */
+@keyframes fadeInUpCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ==========================================
+   SLIDE 9 STYLES
+   ========================================== */
+
+#slide-9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+/* Penampil saat slide 9 aktif */
+#slide-9.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* ==========================================
+   1. GAMBAR JOURNAL ENTRY (DISEUSAIKAN)
+   (x: 510px, y: 169px, w: 900px, h: 675px)
+   ========================================== */
+
+.slide9-container {
+  position: absolute;
+  left: 26.5625vw; /* x: 510px */
+  top: 15.648vh; /* y: 169px */
+  width: 46.875vw; /* w: 900px */
+  height: 62.5vh; /* h: 675px */
+  z-index: 5;
+
+  /* State awal sebelum animasi */
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.slide9-container .journal-entry-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================
+   2. TEKS CAPTION UTAMA (h2)
+   (x: CENTER, y: 900px / 83.333vh)
+   ========================================== */
+
+#slide-9 .slide-caption {
+  position: absolute;
+
+  /* Posisi Horizontal Center (Tengah Layar) */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Posisi Vertikal y: 900px */
+  top: 83.333vh;
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.8vw;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 10;
+
+  /* State awal sebelum animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   3. ANIMASI SAAT SLIDE 9 AKTIF
+   ========================================== */
+
+/* Gambar Journal Entry: Zoom In */
+#slide-9.active .slide9-container {
+  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+/* Teks Caption: Fade In Up */
+#slide-9.active .slide-caption {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* ==========================================
+   SLIDE 10 STYLES
+   ========================================== */
+
+#slide-10 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+/* Penampil saat slide 10 aktif */
+#slide-10.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* ==========================================
+   1. GAMBAR PAYROLL HISTORY (DISEUSAIKAN)
+   (x: 510px, y: 179px, w: 900px, h: 675px)
+   ========================================== */
+
+.slide10-container {
+  position: absolute;
+  left: 26.5625vw; /* x: 510px */
+  top: 16.574vh; /* y: 179px */
+  width: 46.875vw; /* w: 900px */
+  height: 62.5vh; /* h: 675px */
+  z-index: 5;
+
+  /* State awal sebelum animasi */
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.slide10-container .payroll-history-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================
+   2. TEKS CAPTION UTAMA (h2)
+   (x: CENTER, y: 900px / 83.333vh)
+   ========================================== */
+
+#slide-10 .slide-caption {
+  position: absolute;
+
+  /* Posisi Horizontal Center (Tengah Layar) */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Posisi Vertikal y: 900px */
+  top: 83.333vh;
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.8vw;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 10;
+
+  /* State awal sebelum animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   3. ANIMASI SAAT SLIDE 10 AKTIF
+   ========================================== */
+
+/* Gambar Payroll History: Zoom In */
+#slide-10.active .slide10-container {
+  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+/* Teks Caption: Fade In Up */
+#slide-10.active .slide-caption {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* ==========================================
+   SLIDE 11 STYLES (SLIDE TERAKHIR)
+   ========================================== */
+
+#slide-11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+/* Penampil saat slide 11 aktif */
+#slide-11.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* ------------------------------------------
+   1. GAMBAR DONE ICON
+   (x: Center, y: 293.02px, w: 159.36px, h: 159.36px)
+   ------------------------------------------ */
+.slide11-container {
+  position: absolute;
+  left: 45.85vw; /* x: 880.32px */
+  top: 27.131vh; /* y: 293.02px */
+  width: 8.3vw; /* w: 159.36px */
+  height: 14.755vh; /* h: 159.36px */
+
+  transform: translateX(-50%) scale(0.92);
+  z-index: 5;
+
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.slide11-container .done-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ------------------------------------------
+   2. TEKS CAPTION UTAMA (h1)
+   (x: Center, y: 512.57px, Inter Bold 70px)
+   ------------------------------------------ */
+#slide-11 .slide-caption {
+  position: absolute;
+  left: 50%;
+  top: 47.46vh; /* y: 512.57px */
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 85vw;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: clamp(32px, 3.646vw, 70px); /* 70px responsive */
+  font-weight: 700; /* Inter Bold */
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  z-index: 10;
+
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   3. TOMBOL RESET
+   (w: 804px, h: 75px, x: Center, y: 697px,
+    Text: Center, Inter Bold 30px, Color: #4B61DD)
+   ------------------------------------------ */
+#slide-11 .btn-reset {
+  position: absolute;
+  left: 50%;
+  top: 64.537vh; /* y: 697px */
+  transform: translateX(-50%);
+
+  width: 41.875vw; /* w: 804px */
+  height: 6.944vh; /* h: 75px */
+
+  /* Flexbox untuk memastikan tulisan tepat di tengah tombol */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: clamp(18px, 1.5625vw, 30px); /* 30px responsive */
+  font-weight: 700; /* Inter Bold */
+  color: #4b61dd; /* Warna tulisan */
+
+  background-color: #ffffff; /* Background putih/sesuai kebutuhan */
+  border: none;
+  border-radius: 12px; /* Silakan sesuaikan kebulatan sudutnya */
+  cursor: pointer;
+  z-index: 10;
+
+  opacity: 0;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  will-change: transform, opacity;
+}
+
+#slide-11 .btn-reset:hover {
+  background-color: #f0f0f0;
+}
+
+/* ------------------------------------------
+   4. ANIMASI SAAT SLIDE 11 AKTIF
+   ------------------------------------------ */
+#slide-11.active .slide11-container {
+  animation: zoomInHero 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-11.active .slide-caption {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+#slide-11.active .btn-reset {
+  animation: fadeInUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+}
+
+/* --- CAPTION TEXT BAWAH --- */
+.slide-caption {
+  position: absolute;
+  bottom: 5vh;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  font-size: 1.8vw;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  z-index: 3;
+}
+
+/* --- FOOTER --- */
+.footer {
+  position: absolute;
+  top: 87.04vh;
+  left: 85.99vw;
+  z-index: 10;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.4vw;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-icon {
+  width: 1.4vw;
+  height: 1.4vw;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  opacity: 1;
+  transform: translateX(0.2vw);
+}

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mekari Talenta - Payroll Disbursement</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="hero-container">
+      <!-- Header -->
+      <header class="header">
+        <img
+          src="assets/images/logo-mekari-talenta.svg"
+          alt="Logo Mekari Talenta"
+          class="logo-img"
+        />
+
+        <button class="home-btn" id="homeBtn" title="Kembali ke Beranda">
+          <img
+            src="assets/images/home-icon.svg"
+            alt="Home Icon"
+            class="home-icon"
+          />
+        </button>
+      </header>
+
+      <button
+        class="nav-arrow prev-arrow"
+        id="prevBtn"
+        title="Slide Sebelumnya"
+      >
+        <img src="assets/images/left.png" alt="Previous" class="arrow-img" />
+      </button>
+
+      <button
+        class="nav-arrow next-arrow"
+        id="nextBtn"
+        title="Slide Selanjutnya"
+      >
+        <img src="assets/images/right.png" alt="Next" class="arrow-img" />
+      </button>
+
+      <!-- Container Slider Utama -->
+      <main class="slider-wrapper">
+        <!-- SLIDE 1 (Beranda) -->
+        <section class="slide active" id="slide-1">
+          <div class="left-section">
+            <h1 class="title">Payroll disbursement</h1>
+            <button class="btn-payroll" id="runPayrollBtn">Run payroll</button>
+          </div>
+
+          <div class="right-section">
+            <div class="hero-image">
+              <img src="assets/images/hero.png" alt="Hero" />
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2 (Modal Review UI & Calculation) -->
+        <section class="slide" id="slide-2">
+          <div class="modal-card">
+            <img
+              src="assets/images/run-payroll.png"
+              alt="Run Payroll Modal"
+              class="modal-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">
+            Mekari Talenta calculates payroll automatically
+          </h2>
+        </section>
+
+        <!-- SLIDE 3: Data Synchronization -->
+        <!-- SLIDE 3: Data Synchronization -->
+        <section class="slide" id="slide-3">
+          <!-- 1. TABEL UTAMA (x: 548px, y: 225px | w: 825px, h: 618.75px) -->
+          <div class="slide3-main-card">
+            <img
+              src="assets/images/slide-3-table.png"
+              alt="Data Synchronization"
+              class="data-sync-img"
+            />
+          </div>
+
+          <!-- 2. FLOATING CARDS (Direct children agar koordinat x,y presisi) -->
+          <!-- Kiri Atas (x: 236px, y: 402px) -->
+          <!-- FLOATING KIRI ATAS: POP UP TALENTA -->
+          <div class="floating-card float-top-left">
+            <!-- 1. GAMBAR LOGO MENGAMBANG -->
+            <img
+              src="assets/images/icon-talenta.png"
+              alt="Talenta Icon"
+              class="card-logo-img"
+            />
+
+            <!-- 2. GAMBAR ISI KONTEN KARTU -->
+            <img
+              src="assets/images/card-sales-achievement.png"
+              alt="Sales Achievement"
+              class="card-body-img"
+            />
+          </div>
+
+          <!-- FLOATING KIRI BAWAH: Pop Up Expense -->
+          <div class="floating-card float-bottom-left">
+            <!-- 1. GAMBAR LOGO MENGAMBANG (Ikon Hijau-Biru) -->
+            <img
+              src="assets/images/icon-expense.png"
+              alt="Expense Icon"
+              class="card-logo-img"
+            />
+
+            <!-- 2. GAMBAR ISI KONTEN KARTU (Office Trip Approved) -->
+            <img
+              src="assets/images/card-office-trip.png"
+              alt="Office Trip Approved"
+              class="card-body-img"
+            />
+          </div>
+
+          <!-- Kanan (x: 1259px, y: 527px) -->
+          <!-- FLOATING KANAN: Pop Up Flex -->
+          <div class="floating-card float-right">
+            <!-- 1. GAMBAR LOGO MENGAMBANG (Ikon Ungu Plus) -->
+            <img
+              src="assets/images/icon-flex.png"
+              alt="Flex Plus Icon"
+              class="card-logo-img"
+            />
+
+            <!-- 2. GAMBAR ISI KONTEN KARTU (Accessible Salary) -->
+            <img
+              src="assets/images/card-accessible-salary.png"
+              alt="Accessible Salary Card"
+              class="card-body-img"
+            />
+          </div>
+
+          <!-- 3. CAPTION BAWAH -->
+          <h2 class="slide-caption">
+            All employee data are automatically <br />
+            synchronized for accurate payroll
+          </h2>
+        </section>
+
+        <!-- SLIDE 4: Processing Payroll -->
+        <section class="slide" id="slide-4">
+          <div class="slide4-main-card">
+            <!-- HEADER MODAL / STEPPER -->
+            <div class="modal-header">
+              <h3 class="run-payroll-title">RUN PAYROLL</h3>
+              <div class="stepper-wrapper">
+                <div class="step-item completed">
+                  <div class="step-icon">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                      <path
+                        d="M1 5L5 9L13 1"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span class="step-label">Setup</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-item completed">
+                  <div class="step-icon">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                      <path
+                        d="M1 5L5 9L13 1"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span class="step-label">Review</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-item active">
+                  <div class="step-icon current">3</div>
+                  <span class="step-label active">Summary</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- INNER CARD (PROGRESS CIRCLE & TEXT) -->
+            <div class="process-inner-card">
+              <!-- CIRCULAR PROGRESS -->
+              <div class="progress-circle-container">
+                <svg class="progress-svg" viewBox="0 0 120 120">
+                  <circle class="circle-bg" cx="60" cy="60" r="52"></circle>
+                  <circle
+                    class="circle-bar"
+                    id="payrollProgressCircle"
+                    cx="60"
+                    cy="60"
+                    r="52"
+                  ></circle>
+                </svg>
+                <div class="progress-text">
+                  <span id="payrollPercentText">0%</span>
+                </div>
+              </div>
+
+              <!-- DESKRIPSI TEKS -->
+              <h3 class="process-title">
+                Processing your payroll (1/2 employee)
+              </h3>
+              <p class="process-subtitle">
+                Please wait while we set things up for you.
+              </p>
+            </div>
+          </div>
+
+          <!-- CAPTION BAWAH -->
+          <h2 class="slide-caption">
+            Now sit back, and wait while your payroll is being processed
+          </h2>
+        </section>
+
+        <!-- SLIDE 5: Stacking Payslips -->
+        <section class="slide" id="slide-2">
+          <div class="modal-card">
+            <img
+              src="assets/images/payslip-1.png"
+              alt="Payslip"
+              class="modal-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">
+            Mekari Talenta generates payslips automatically
+          </h2>
+        </section>
+
+        <!-- SLIDE 6: Payroll Disbursement -->
+        <section class="slide" id="slide-6">
+          <div class="slide6-container">
+            <h1 class="disbursement-title">Payroll<br />disbursement</h1>
+
+            <div class="disbursement-hero">
+              <img
+                src="assets/images/hero-disbursement.png"
+                alt="Payroll Disbursement"
+                class="disbursement-img"
+              />
+            </div>
+          </div>
+
+          <!-- <p class="slide-caption">
+            Automated & instant transfer directly to multiple banks
+          </p> -->
+        </section>
+
+        <section class="slide" id="slide-7">
+          <div class="slide7-container">
+            <img
+              src="assets/images/bank-card.png"
+              alt="Bank Card"
+              class="bank-card-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">
+            We currently support BNI, BSI (Bank Syariah Indonesia), BRI, BCA,
+            Permata,<br />BSS (Bank Sampoerna), and Mandiri Virtual Account
+          </h2>
+
+          <p class="slide-note">
+            Note: Mandiri Virtual Account only supports transfers from another
+            Mandiri bank account
+          </p>
+        </section>
+
+        <section class="slide" id="slide-8">
+          <div class="slide8-container">
+            <img
+              src="assets/images/logo-group.png"
+              alt="Bank Card"
+              class="logo-group-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">No manual journal entries after payroll</h2>
+        </section>
+
+        <section class="slide" id="slide-9">
+          <div class="slide9-container">
+            <img
+              src="assets/images/journal-entry.png"
+              alt="Journal Entry"
+              class="journal-entry-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">No manual journal entries after payroll</h2>
+        </section>
+
+        <section class="slide" id="slide-10">
+          <div class="slide10-container">
+            <img
+              src="assets/images/payroll-history.png"
+              alt="Payroll History"
+              class="payroll-history-img"
+            />
+          </div>
+
+          <h2 class="slide-caption">
+            Automatically prepare e-Bupot for tax reporting with Mekari
+            Klikpajak
+          </h2>
+        </section>
+
+        <section class="slide" id="slide-11">
+          <div class="slide11-container">
+            <img
+              src="assets/images/done-icon.png"
+              alt="Done"
+              class="done-img"
+            />
+          </div>
+
+          <h1 class="slide-caption">Payroll done!</h1>
+
+          <button class="btn-reset" id="resetBtn">Reset</button>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <a href="payroll-service.html" class="footer-link">
+          <img
+            src="assets/images/arrow-right.svg"
+            alt="Arrow Right"
+            class="footer-icon"
+          />
+          Payroll Service
+        </a>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

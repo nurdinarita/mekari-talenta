@@ -1,0 +1,809 @@
+/* Reset Basic */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #b8282b;
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #b8282b;
+}
+
+/* Header & Logo */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.logo-img {
+  position: absolute;
+  top: 6.38vh;
+  left: 4.16vw;
+  width: 9.6vw;
+  height: auto;
+}
+
+/* Base Style Slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 5;
+}
+
+/* ==========================================
+   SLIDE 1 STYLES + ANIMATION
+   ========================================== */
+
+#slide-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ------------------------------------------
+   1. H1 TITLE
+   ------------------------------------------ */
+.slide1-title {
+  position: absolute;
+  left: 25.833vw; /* x: 485px */
+  top: 36.388vh; /* y: 393px */
+  width: 36vw;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600; /* Semi Bold */
+  font-size: 5.925vh; /* 64px */
+  color: #f5f5f5;
+
+  line-height: 1.15;
+  text-align: left;
+  z-index: 10;
+  margin: 0;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   2. BUTTON NEXT
+   ------------------------------------------ */
+.slide1-next-btn {
+  position: absolute;
+  left: 42.5vw; /* x: 816px */
+  top: 46.481vh; /* y: 502px */
+
+  width: 15vw; /* w: 288px */
+  height: 6.944vh; /* h: 75px */
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.388vh; /* Corner radius 15px */
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 2.777vh; /* 30px */
+  color: #4b61dd;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slide1-next-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03) !important;
+}
+
+/* ------------------------------------------
+   3. HERO IMAGE
+   ------------------------------------------ */
+.slide1-hero-img {
+  position: absolute;
+  left: 63vw; /* x: 1183px */
+  top: 43.518vh; /* y: 470px */
+
+  width: 21.354vw; /* w: 410px */
+  height: 42.5vh; /* h: 459px */
+
+  object-fit: contain;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================
+   KEYFRAMES ANIMATION DEFINITIONS
+   ========================================== */
+
+/* Animasi 1: Slide in dari kiri */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animasi 2: Slide up dari bawah */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi 3: Pop/Zoom in dari tengah */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   TRIGGER ANIMASI SAAT SLIDE 1 AKTIF
+   ========================================== */
+
+#slide-1.active .slide1-title {
+  animation: fadeInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-1.active .slide1-hero-img {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+#slide-1.active .slide1-next-btn {
+  animation: popIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+}
+
+/* ==========================================
+   SLIDE 2 STYLES
+   ========================================== */
+
+#slide-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Penampil saat slide 2 aktif */
+#slide-2.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* Content Container Slide 2 */
+#slide-2 .slide-content {
+  position: absolute;
+  top: 25vh;
+  left: 0; /* Ubah dari 6.25vw menjadi 0 */
+  width: 100vw; /* Memastikan kontainer mencakup penuh lebar layar */
+  z-index: 10;
+
+  /* Opsional: memastikan anak elemennya center */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Judul Slide 2 */
+#slide-2 .slide-title {
+  font-family: "Inter", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 4vh;
+  max-width: 70vw;
+  text-align: center;
+
+  /* Agar blok elemen yang punya max-width rata tengah sempurna */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Setting awal animasi */
+  opacity: 0;
+  transform: translateY(
+    30px
+  ); /* Gunakan translateY agar tidak mengganggu posisi X saat animasi */
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   2. BUTTON NEXT
+   ------------------------------------------ */
+.slide2-next-btn {
+  position: absolute;
+  left: 42.45vw; /* x: 816px */
+  top: 21.481vh; /* y: 502px */
+
+  width: 15vw; /* w: 288px */
+  height: 6.944vh; /* h: 75px */
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.388vh; /* Corner radius 15px */
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 2.777vh; /* 30px */
+  color: #4b61dd;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slide2-next-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03) !important;
+}
+
+/* ==========================================
+   ANIMASI SAAT SLIDE 2 AKTIF
+   ========================================== */
+
+#slide-2.active .slide-title {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-2.active #slide2NextBtn {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* ==========================================
+   SLIDE 3 STYLES
+   ========================================== */
+
+#slide-3,
+#slide-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Penampil saat slide 3 aktif */
+#slide-3.active,
+#slide-4.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* Content Container Slide 3 */
+#slide-3 .slide-content,
+#slide-4 .slide-content {
+  position: absolute;
+  top: 25vh;
+  left: 0; /* Ubah dari 6.25vw menjadi 0 */
+  width: 100vw; /* Memastikan kontainer mencakup penuh lebar layar */
+  z-index: 10;
+
+  /* Opsional: memastikan anak elemennya center */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Judul Slide 3 */
+#slide-3 .slide-title,
+#slide-4 .slide-title {
+  font-family: "Inter", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 4vh;
+  max-width: 70vw;
+  text-align: center;
+
+  /* Agar blok elemen yang punya max-width rata tengah sempurna */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Setting awal animasi */
+  opacity: 0;
+  transform: translateY(
+    30px
+  ); /* Gunakan translateY agar tidak mengganggu posisi X saat animasi */
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   2. BUTTON NEXT
+   ------------------------------------------ */
+.slide3-next-btn,
+.slide4-next-btn {
+  position: absolute;
+  left: 42.45vw; /* x: 816px */
+  top: 21.481vh; /* y: 502px */
+
+  width: 15vw; /* w: 288px */
+  height: 6.944vh; /* h: 75px */
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.388vh; /* Corner radius 15px */
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 2.777vh; /* 30px */
+  color: #4b61dd;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slide3-next-btn:hover,
+.slide4-next-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03) !important;
+}
+
+/* ==========================================
+   ANIMASI SAAT SLIDE 3 AKTIF
+   ========================================== */
+
+#slide-3.active .slide-title,
+#slide-4.active .slide-title {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-3.active #slide3NextBtn,
+#slide-4.active #slide4NextBtn {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* ==========================================
+   SLIDE 5 STYLING
+   ========================================== */
+
+#slide-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#slide-5 .slide-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 1. Subtitle (Text 1) */
+#slide-5 .slide-subtitle {
+  position: absolute;
+  left: 19.114vw; /* x: 14479 (offset ~79px) */
+  top: 18.796vh; /* y: 21403 (offset ~203px) */
+  font-family: "Inter", sans-serif;
+  font-size: 2.5vw; /* 48px */
+  font-weight: 700; /* Bold */
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  z-index: 10;
+
+  /* State awal animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 2. Title (Text 2) */
+#slide-5 .slide-title {
+  position: absolute;
+  left: 24.841vw; /* x: 14608.16 (offset ~208.16px) */
+  top: 27.413vh; /* y: 21496.07 (offset ~296.07px) */
+  font-family: "Inter", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 700; /* Bold */
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+  z-index: 10;
+
+  /* State awal animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 3. Description (Text 3) */
+#slide-5 .slide-content > p:not(.slide-subtitle):not(.slide-title) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Posisi Center X */
+  top: 64.166vh; /* y: 21893 (offset ~693px) */
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  max-width: 70vw;
+  margin: 0;
+  white-space: nowrap;
+  z-index: 10;
+
+  /* State awal animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 4. Next Button Slide 5 */
+.slide5-next-btn,
+#slide5NextBtn {
+  position: absolute;
+  left: 42.45vw; /* x: 816px */
+  top: 46.481vh; /* y: 502px */
+
+  width: 15vw; /* w: 288px */
+  height: 6.944vh; /* h: 75px */
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.388vh; /* Corner radius 15px */
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 2.777vh; /* 30px */
+  color: #4b61dd;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slide5-next-btn:hover,
+#slide5NextBtn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03) !important;
+}
+
+/* ==========================================
+   ANIMASI SLIDE 5 (KEYFRAMES & TRIGGERS)
+   ========================================== */
+
+/* Keyframes Animasi */
+@keyframes slide5FadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide5FadeUpCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes slide5PopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Trigger Animasi Saat Slide 5 Aktif */
+
+/* 1. Subtitle muncul pertama (delay 0.1s) */
+#slide-5.active .slide-subtitle {
+  animation: slide5FadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+/* 2. Title muncul kedua (delay 0.25s) */
+#slide-5.active .slide-title {
+  animation: slide5FadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.25s forwards;
+}
+
+/* 3. Next Button pop-in ketiga (delay 0.4s) */
+#slide-5.active .slide5-next-btn,
+#slide-5.active #slide5NextBtn {
+  animation: slide5PopIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
+}
+
+/* 4. Text Description (bawah) muncul terakhir (delay 0.55s) */
+#slide-5.active .slide-content > p:not(.slide-subtitle):not(.slide-title) {
+  animation: slide5FadeUpCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.55s
+    forwards;
+}
+
+/* ==========================================
+   SLIDE 6 STYLES
+   ========================================== */
+#slide-6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Penampil saat slide 6 aktif */
+#slide-6.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* Content Container Slide 6 */
+#slide-6 .slide-content {
+  position: absolute;
+  top: 12vh; /* DITINGKATKAN: Diubah dari 25vh ke 12vh agar seluruh elemen naik ke atas */
+  left: 0;
+  width: 100vw;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Judul Slide 6 (Dinaikkan ke Atas) */
+#slide-6 .slide-title {
+  position: absolute;
+  left: 23.841vw; /* x: 14608.16 (offset ~208.16px) */
+  top: 0; /* y: 21496.07 (offset ~296.07px) */
+  font-family: "Inter", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 700; /* Bold */
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+  z-index: 10;
+
+  /* State awal animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   GAMBAR SLIDE 6 (w: 1292px, h: 380px, Center X & Center Y)
+   ------------------------------------------ */
+.slide6-img {
+  position: absolute;
+  top: 31vh; /* y: 670px pada layar 1080px */
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 67.291vw; /* w: 1292px pada layar 1920px */
+  height: 35.185vh; /* h: 380px pada layar 1080px */
+
+  object-fit: contain;
+  z-index: 5;
+
+  /* Setting awal animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------
+   2. BUTTON NEXT
+   ------------------------------------------ */
+.slide5-reset-btn {
+  position: absolute;
+  left: 42.45vw; /* x: 816px */
+  top: 53.481vh; /* y: 502px */
+
+  width: 15vw; /* w: 288px */
+  height: 6.944vh; /* h: 75px */
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1.388vh;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 2.777vh;
+  color: #4b61dd;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Setting Awal Animasi */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.slide5-reset-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03) !important;
+}
+
+/* ==========================================
+   ANIMASI SAAT SLIDE 6 AKTIF
+   ========================================== */
+
+/* Keyframe Animasi Khusus Judul Slide 2 */
+@keyframes slide2TitleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(
+      -2vh
+    ); /* Mengangkat posisi judul sedikit lebih tinggi saat animasi selesai */
+  }
+}
+
+/* Keyframe Animasi Gambar Slide 6 */
+@keyframes slide6ImgFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Trigger Animasi Elemen */
+#slide-6.active .slide-title {
+  animation: slide2TitleFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+}
+
+#slide-6.active .slide6-img {
+  animation: slide6ImgFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+#slide-6.active #slide6NextBtn,
+#slide-6.active .slide5-reset-btn {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
+
+/* Navigasi Panah Umum */
+/*
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 5.09vh;
+  aspect-ratio: 1 / 1;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.prev-arrow {
+  left: 1.5vw;
+}
+.next-arrow {
+  right: 1.5vw;
+}
+  */
