@@ -78,13 +78,13 @@ body {
    ------------------------------------------ */
 .slide1-title {
   position: absolute;
-  left: 25.833vw; /* x: 485px */
-  top: 36.388vh; /* y: 393px */
+  left: 25.833vw;
+  top: 36.388vh;
   width: 36vw;
 
   font-family: "Inter", sans-serif;
-  font-weight: 600; /* Semi Bold */
-  font-size: 5.925vh; /* 64px */
+  font-weight: 600;
+  font-size: 5.925vh;
   color: #f5f5f5;
 
   line-height: 1.15;
@@ -141,11 +141,11 @@ body {
    ------------------------------------------ */
 .slide1-hero-img {
   position: absolute;
-  left: 63vw; /* x: 1183px */
-  top: 43.518vh; /* y: 470px */
+  left: 63vw;
+  top: 43.518vh;
 
-  width: 21.354vw; /* w: 410px */
-  height: 42.5vh; /* h: 459px */
+  width: 21.354vw;
+  height: 42.5vh;
 
   object-fit: contain;
   z-index: 10;
@@ -240,11 +240,10 @@ body {
 #slide-2 .slide-content {
   position: absolute;
   top: 25vh;
-  left: 0; /* Ubah dari 6.25vw menjadi 0 */
-  width: 100vw; /* Memastikan kontainer mencakup penuh lebar layar */
+  left: 0;
+  width: 100vw;
   z-index: 10;
 
-  /* Opsional: memastikan anak elemennya center */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -267,9 +266,7 @@ body {
 
   /* Setting awal animasi */
   opacity: 0;
-  transform: translateY(
-    30px
-  ); /* Gunakan translateY agar tidak mengganggu posisi X saat animasi */
+  transform: translateY(30px);
   will-change: transform, opacity;
 }
 
@@ -278,19 +275,19 @@ body {
    ------------------------------------------ */
 .slide2-next-btn {
   position: absolute;
-  left: 42.45vw; /* x: 816px */
-  top: 21.481vh; /* y: 502px */
+  left: 42.45vw;
+  top: 21.481vh;
 
-  width: 15vw; /* w: 288px */
-  height: 6.944vh; /* h: 75px */
+  width: 15vw;
+  height: 6.944vh;
 
   background-color: #ffffff;
   border: none;
-  border-radius: 1.388vh; /* Corner radius 15px */
+  border-radius: 1.388vh;
 
   font-family: "Inter", sans-serif;
-  font-weight: 700; /* Bold */
-  font-size: 2.777vh; /* 30px */
+  font-weight: 700;
+  font-size: 2.777vh;
   color: #4b61dd;
 
   cursor: pointer;
@@ -356,11 +353,10 @@ body {
 #slide-4 .slide-content {
   position: absolute;
   top: 25vh;
-  left: 0; /* Ubah dari 6.25vw menjadi 0 */
-  width: 100vw; /* Memastikan kontainer mencakup penuh lebar layar */
+  left: 0;
+  width: 100vw;
   z-index: 10;
 
-  /* Opsional: memastikan anak elemennya center */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,15 +374,12 @@ body {
   max-width: 70vw;
   text-align: center;
 
-  /* Agar blok elemen yang punya max-width rata tengah sempurna */
   margin-left: auto;
   margin-right: auto;
 
   /* Setting awal animasi */
   opacity: 0;
-  transform: translateY(
-    30px
-  ); /* Gunakan translateY agar tidak mengganggu posisi X saat animasi */
+  transform: translateY(30px);
   will-change: transform, opacity;
 }
 
@@ -396,19 +389,19 @@ body {
 .slide3-next-btn,
 .slide4-next-btn {
   position: absolute;
-  left: 42.45vw; /* x: 816px */
-  top: 21.481vh; /* y: 502px */
+  left: 42.45vw;
+  top: 21.481vh;
 
-  width: 15vw; /* w: 288px */
-  height: 6.944vh; /* h: 75px */
+  width: 15vw;
+  height: 6.944vh;
 
   background-color: #ffffff;
   border: none;
-  border-radius: 1.388vh; /* Corner radius 15px */
+  border-radius: 1.388vh;
 
   font-family: "Inter", sans-serif;
-  font-weight: 700; /* Bold */
-  font-size: 2.777vh; /* 30px */
+  font-weight: 700;
+  font-size: 2.777vh;
   color: #4b61dd;
 
   cursor: pointer;
@@ -466,11 +459,11 @@ body {
 /* 1. Subtitle (Text 1) */
 #slide-5 .slide-subtitle {
   position: absolute;
-  left: 19.114vw; /* x: 14479 (offset ~79px) */
-  top: 18.796vh; /* y: 21403 (offset ~203px) */
+  left: 19.114vw;
+  top: 18.796vh;
   font-family: "Inter", sans-serif;
-  font-size: 2.5vw; /* 48px */
-  font-weight: 700; /* Bold */
+  font-size: 2.5vw;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
   margin: 0;
@@ -484,8 +477,8 @@ body {
 /* 2. Title (Text 2) */
 #slide-5 .slide-title {
   position: absolute;
-  left: 24.841vw; /* x: 14608.16 (offset ~208.16px) */
-  top: 27.413vh; /* y: 21496.07 (offset ~296.07px) */
+  left: 24.841vw;
+  top: 27.413vh;
   font-family: "Inter", sans-serif;
   font-size: 3.2vw;
   font-weight: 700; /* Bold */
@@ -503,8 +496,8 @@ body {
 #slide-5 .slide-content > p:not(.slide-subtitle):not(.slide-title) {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* Posisi Center X */
-  top: 64.166vh; /* y: 21893 (offset ~693px) */
+  transform: translateX(-50%);
+  top: 64.166vh;
   text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 3.2vw;
@@ -525,19 +518,19 @@ body {
 .slide5-next-btn,
 #slide5NextBtn {
   position: absolute;
-  left: 42.45vw; /* x: 816px */
-  top: 46.481vh; /* y: 502px */
+  left: 42.45vw;
+  top: 46.481vh;
 
-  width: 15vw; /* w: 288px */
-  height: 6.944vh; /* h: 75px */
+  width: 15vw;
+  height: 6.944vh;
 
   background-color: #ffffff;
   border: none;
-  border-radius: 1.388vh; /* Corner radius 15px */
+  border-radius: 1.388vh;
 
   font-family: "Inter", sans-serif;
-  font-weight: 700; /* Bold */
-  font-size: 2.777vh; /* 30px */
+  font-weight: 700;
+  font-size: 2.777vh;
   color: #4b61dd;
 
   cursor: pointer;
@@ -649,7 +642,7 @@ body {
 /* Content Container Slide 6 */
 #slide-6 .slide-content {
   position: absolute;
-  top: 12vh; /* DITINGKATKAN: Diubah dari 25vh ke 12vh agar seluruh elemen naik ke atas */
+  top: 12vh;
   left: 0;
   width: 100vw;
   z-index: 10;
@@ -659,11 +652,11 @@ body {
   align-items: center;
 }
 
-/* Judul Slide 6 (Dinaikkan ke Atas) */
+/* Judul Slide 6 */
 #slide-6 .slide-title {
   position: absolute;
-  left: 23.841vw; /* x: 14608.16 (offset ~208.16px) */
-  top: 0; /* y: 21496.07 (offset ~296.07px) */
+  left: 23.841vw;
+  top: 0;
   font-family: "Inter", sans-serif;
   font-size: 3.2vw;
   font-weight: 700; /* Bold */
@@ -682,12 +675,12 @@ body {
    ------------------------------------------ */
 .slide6-img {
   position: absolute;
-  top: 31vh; /* y: 670px pada layar 1080px */
+  top: 31vh;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 67.291vw; /* w: 1292px pada layar 1920px */
-  height: 35.185vh; /* h: 380px pada layar 1080px */
+  width: 67.291vw;
+  height: 35.185vh;
 
   object-fit: contain;
   z-index: 5;
@@ -702,11 +695,11 @@ body {
    ------------------------------------------ */
 .slide5-reset-btn {
   position: absolute;
-  left: 42.45vw; /* x: 816px */
-  top: 53.481vh; /* y: 502px */
+  left: 42.45vw;
+  top: 53.481vh;
 
-  width: 15vw; /* w: 288px */
-  height: 6.944vh; /* h: 75px */
+  width: 15vw;
+  height: 6.944vh;
 
   background-color: #ffffff;
   border: none;
@@ -748,9 +741,7 @@ body {
   }
   to {
     opacity: 1;
-    transform: translateY(
-      -2vh
-    ); /* Mengangkat posisi judul sedikit lebih tinggi saat animasi selesai */
+    transform: translateY(-2vh);
   }
 }
 
@@ -779,31 +770,3 @@ body {
 #slide-6.active .slide5-reset-btn {
   animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
 }
-
-/* Navigasi Panah Umum */
-/*
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 5.09vh;
-  aspect-ratio: 1 / 1;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-}
-
-.prev-arrow {
-  left: 1.5vw;
-}
-.next-arrow {
-  right: 1.5vw;
-}
-  */

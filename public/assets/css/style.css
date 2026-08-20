@@ -10,7 +10,7 @@ body {
   color: #ffffff;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Mencegah scrollbar di layar TV 4K */
+  overflow: hidden;
 }
 
 .hero-container {
@@ -28,30 +28,28 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none; /* Mencegah area kosong header menghalangi klik ke tombol/elemen lain */
+  pointer-events: none;
   z-index: 10;
 }
 
-/* --- LOGO (x: 80px, y: 69px | w: 184.4px, h: 50px) --- */
 .logo-img {
   position: absolute;
-  top: 6.38vh; /* 69px / 1080 * 100 */
-  left: 4.16vw; /* 80px / 1920 * 100 */
-  width: 9.6vw; /* 184.4px / 1920 * 100 */
-  height: 4.62vh; /* 50px / 1080 * 100 */
+  top: 6.38vh;
+  left: 4.16vw;
+  width: 9.6vw;
+  height: 4.62vh;
   display: block;
-  pointer-events: auto; /* Mengaktifkan kembali area interaksi logo */
+  pointer-events: auto;
 }
 
-/* --- TOMBOL HOME (x: 1785px, y: 66px | w: 55px, h: 55px) --- */
+/* --- TOMBOL HOME --- */
 .home-btn {
   position: absolute;
-  top: 6.11vh; /* 66px / 1080 * 100 */
-  left: 92.97vw; /* 1785px / 1920 * 100 */
+  top: 6.11vh;
+  left: 92.97vw;
 
-  /* Kunci dimensi w: 55px & h: 55px agar selalu bulat 1:1 */
-  height: 5.09vh; /* 55px / 1080 * 100 */
-  aspect-ratio: 1 / 1; /* Menjamin width otomatis menyamai height (55px) secara presisi */
+  height: 5.09vh;
+  aspect-ratio: 1 / 1;
 
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -73,7 +71,7 @@ body {
 }
 
 .home-icon {
-  width: 50%; /* Skala ikon di dalam lingkaran 55px */
+  width: 50%;
   height: 50%;
   object-fit: contain;
   display: block;
@@ -85,9 +83,8 @@ body {
   top: 50%;
   transform: translateY(-50%);
 
-  /* Dimensi presisi 55px (w: 55px & h: 55px) berbasis vh & aspect-ratio 1:1 */
-  height: 5.09vh; /* 55px / 1080 * 100 */
-  aspect-ratio: 1 / 1; /* Menjamin width otomatis menyamai height secara presisi */
+  height: 5.09vh;
+  aspect-ratio: 1 / 1;
 
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -114,15 +111,13 @@ body {
 
 .nav-arrow:hover {
   background: rgba(255, 255, 255, 0.4);
-  /* Menjaga posisi vertikal 50% tetap aman saat terjadi efek zoom/scale */
   transform: translateY(-50%) scale(1.05);
 }
 
-/* Style Ikon di Dalam Tombol Panah */
 .nav-arrow img,
 .nav-arrow .arrow-img,
 .nav-arrow svg {
-  width: 100%; /* Skala ikon di dalam lingkaran 55px */
+  width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
@@ -154,8 +149,6 @@ body {
   opacity: 1;
   visibility: visible;
 }
-
-/* --- JUDUL (x: 228px, y: 436px | w: 615px, h: 75px) --- */
 .title {
   position: absolute;
   top: 40.37vh;
@@ -194,7 +187,7 @@ body {
   transform: translateY(-0.3vh) scale(1.01);
 }
 
-/* --- ILUSTRASI KANAN --- */
+/* --- GAMBAR HERO --- */
 .hero-image {
   position: absolute;
   top: 12.96vh;
@@ -211,14 +204,12 @@ body {
   display: block;
 }
 
-/* Sembunyikan semua slide secara default */
 .slide {
   display: none;
   width: 100vw;
   height: 100vh;
 }
 
-/* Tampilkan hanya slide yang aktif */
 .slide.active {
   display: flex !important;
 }
@@ -226,12 +217,11 @@ body {
 /* --- SLIDE 2 --- */
 .modal-card {
   position: absolute;
-  top: 15.65vh; /* y: 169px / 1080 * 100 */
-  left: 26.56vw; /* x: 510px / 1920 * 100 */
-  width: 46.87vw; /* w: 900px / 1920 * 100 */
-  height: 62.5vh; /* h: 675px / 1080 * 100 */
+  top: 15.65vh;
+  left: 26.56vw;
+  width: 46.87vw;
+  height: 62.5vh;
 
-  /* Hilangkan padding & background bawaan agar gambar tampil utuh */
   padding: 0;
   background: transparent;
   display: flex;
@@ -370,7 +360,6 @@ body {
   font-size: 2vw;
 }
 
-/* --- SLIDE 3 BASE CONTAINER --- */
 /* ==========================================
    SLIDE 3 STYLING
    ========================================== */
@@ -381,13 +370,12 @@ body {
   overflow: hidden;
 }
 
-/* --- TABEL UTAMA (X: 548px, Y: 225px | W: 825px, H: 618.75px) --- */
 .slide3-main-card {
   position: absolute;
-  left: 28.54vw; /* 548px / 1920 * 100 */
-  top: 20.83vh; /* 225px / 1080 * 100 */
-  width: 42.97vw; /* 825px / 1920 * 100 */
-  height: 57.29vh; /* 618.75px / 1080 * 100 */
+  left: 28.54vw;
+  top: 20.83vh;
+  width: 42.97vw;
+  height: 57.29vh;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -494,9 +482,9 @@ body {
 /* CONTAINER CARD UTAMA */
 .slide4-main-card {
   position: absolute;
-  left: 28.54vw; /* 548px / 1920 * 100 */
-  top: 15.83vh; /* Presisi posisi tengah */
-  width: 42.97vw; /* 825px / 1920 * 100 */
+  left: 28.54vw;
+  top: 15.83vh;
+  width: 42.97vw;
   background: #fafafa;
   border-radius: 1.5vw;
   padding: 2vw;
@@ -514,7 +502,7 @@ body {
   margin-bottom: 1.5vw;
 }
 
-/* STEPPER HEADER (1 Setup, 2 Review, 3 Summary) */
+/* STEPPER HEADER */
 .stepper-wrapper {
   display: flex;
   align-items: center;
@@ -642,7 +630,7 @@ body {
 }
 
 /* ==========================================
-   SLIDE 6 - KODE LENGKAP + ANIMASI MASUK
+   SLIDE 6
    ========================================== */
 
 /* 1. Pembungkus Utama Slide 6 */
@@ -663,11 +651,11 @@ body {
 /* 2. Teks "Payroll disbursement" (x: 236px, y: 486px, size: 45px) */
 .disbursement-title {
   position: absolute;
-  left: 12.29vw; /* x: 236px */
-  top: 45vh; /* y: 486px */
+  left: 12.29vw;
+  top: 45vh;
   font-family: "Inter", sans-serif;
-  font-size: 2.34vw; /* 45px */
-  font-weight: 500; /* Inter Medium */
+  font-size: 2.34vw;
+  font-weight: 500;
   color: #ffffff;
   line-height: 1.15;
   text-align: left;
@@ -683,10 +671,10 @@ body {
 /* 3. Hero Image Container (x: 672px, y: 187px, w: 993.39px, h: 705.67px) */
 .disbursement-hero {
   position: absolute;
-  left: 35vw; /* x: 672px */
-  top: 17.31vh; /* y: 187px */
-  width: 51.74vw; /* w: 993.39px */
-  height: 65.34vh; /* h: 705.67px */
+  left: 35vw;
+  top: 17.31vh;
+  width: 51.74vw;
+  height: 65.34vh;
   z-index: 5;
 
   /* Kondisi Awal Sebelum Aktif (Tersembunyi & Agak Mencilik/Zoom Out) */
@@ -770,15 +758,14 @@ body {
 
 /* ==========================================
    2. GAMBAR BANK CARD
-   (x: 554.34px, y: 215.27px, w: 810.66px, h: 458.28px)
    ========================================== */
 
 .slide7-container {
   position: absolute;
-  left: 28.87vw; /* x: 554.34px */
-  top: 19.93vh; /* y: 215.27px */
-  width: 42.22vw; /* w: 810.66px */
-  height: 42.43vh; /* h: 458.28px */
+  left: 28.87vw;
+  top: 19.93vh;
+  width: 42.22vw;
+  height: 42.43vh;
   z-index: 5;
 
   /* Kondisi Awal Sebelum Aktif */
@@ -795,14 +782,13 @@ body {
 }
 
 /* ==========================================
-   3. TEKS CAPTION UTAMA (h2) - CENTER X
-   (y: 793px)
+   3. TEKS CAPTION UTAMA
    ========================================== */
 
 #slide-7 .slide-caption {
   position: absolute;
   left: 50%;
-  top: 73.42vh; /* y: 793px */
+  top: 73.42vh;
   transform: translateX(-50%);
 
   width: 100%;
@@ -823,14 +809,13 @@ body {
 }
 
 /* ==========================================
-   4. NOTE / CATATAN BAWAH (p.slide-note) - CENTER X & TIDAK BOLD
-   (y: 928px | Inter Italic 30px Regular/Light)
+   4. NOTE / CATATAN BAWAH 
    ========================================== */
 
 #slide-7 .slide-note {
   position: absolute;
   left: 50%;
-  top: 85.93vh; /* y: 928px */
+  top: 85.93vh;
   transform: translateX(-50%);
 
   width: 100%;
@@ -838,9 +823,9 @@ body {
   text-align: center;
 
   font-family: "Inter", sans-serif;
-  font-size: 1.56vw; /* 30px */
-  font-style: italic; /* Inter Italic */
-  font-weight: 300; /* Dibuat lebih tipis/tidak bold (300 = Light, 400 = Regular) */
+  font-size: 1.56vw;
+  font-style: italic;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.3;
   margin: 0;
@@ -908,15 +893,14 @@ body {
 
 /* ==========================================
    1. GAMBAR LOGO GROUP
-   (x: 627px, y: 276px, w: 504.6px, h: 528.31px)
    ========================================== */
 
 .slide8-container {
   position: absolute;
-  left: 32.656vw; /* x: 627px */
-  top: 25.555vh; /* y: 276px */
-  width: 26.281vw; /* w: 504.6px */
-  height: 48.917vh; /* h: 528.31px */
+  left: 32.656vw;
+  top: 25.555vh;
+  width: 26.281vw;
+  height: 48.917vh;
   z-index: 5;
 
   /* Condition awal sebelum animasi */
@@ -933,13 +917,13 @@ body {
 }
 
 /* ==========================================
-   2. TEKS CAPTION UTAMA (h2) - CENTER X
+   2. TEKS CAPTION UTAMA
    ========================================== */
 
 #slide-8 .slide-caption {
   position: absolute;
   left: 50%;
-  top: 76.85vh; /* Posisikan di bawah gambar (y: 830px) */
+  top: 76.85vh;
   transform: translateX(-50%);
 
   width: 100%;
@@ -1010,16 +994,15 @@ body {
 }
 
 /* ==========================================
-   1. GAMBAR JOURNAL ENTRY (DISEUSAIKAN)
-   (x: 510px, y: 169px, w: 900px, h: 675px)
+   1. GAMBAR JOURNAL ENTRY
    ========================================== */
 
 .slide9-container {
   position: absolute;
-  left: 26.5625vw; /* x: 510px */
-  top: 15.648vh; /* y: 169px */
-  width: 46.875vw; /* w: 900px */
-  height: 62.5vh; /* h: 675px */
+  left: 26.5625vw;
+  top: 15.648vh;
+  width: 46.875vw;
+  height: 62.5vh;
   z-index: 5;
 
   /* State awal sebelum animasi */
@@ -1036,14 +1019,13 @@ body {
 }
 
 /* ==========================================
-   2. TEKS CAPTION UTAMA (h2)
-   (x: CENTER, y: 900px / 83.333vh)
+   2. TEKS CAPTION UTAMA
    ========================================== */
 
 #slide-9 .slide-caption {
   position: absolute;
 
-  /* Posisi Horizontal Center (Tengah Layar) */
+  /* Posisi Horizontal Center */
   left: 50%;
   transform: translateX(-50%);
 
@@ -1106,16 +1088,15 @@ body {
 }
 
 /* ==========================================
-   1. GAMBAR PAYROLL HISTORY (DISEUSAIKAN)
-   (x: 510px, y: 179px, w: 900px, h: 675px)
+   1. GAMBAR PAYROLL HISTORY 
    ========================================== */
 
 .slide10-container {
   position: absolute;
-  left: 26.5625vw; /* x: 510px */
-  top: 16.574vh; /* y: 179px */
-  width: 46.875vw; /* w: 900px */
-  height: 62.5vh; /* h: 675px */
+  left: 26.5625vw;
+  top: 16.574vh;
+  width: 46.875vw;
+  height: 62.5vh;
   z-index: 5;
 
   /* State awal sebelum animasi */
@@ -1132,18 +1113,16 @@ body {
 }
 
 /* ==========================================
-   2. TEKS CAPTION UTAMA (h2)
-   (x: CENTER, y: 900px / 83.333vh)
+   2. TEKS CAPTION UTAMA
    ========================================== */
 
 #slide-10 .slide-caption {
   position: absolute;
 
-  /* Posisi Horizontal Center (Tengah Layar) */
+  /* Posisi Horizontal Center */
   left: 50%;
   transform: translateX(-50%);
 
-  /* Posisi Vertikal y: 900px */
   top: 83.333vh;
 
   width: 100%;
@@ -1178,7 +1157,7 @@ body {
 }
 
 /* ==========================================
-   SLIDE 11 STYLES (SLIDE TERAKHIR)
+   SLIDE 11 STYLES 
    ========================================== */
 
 #slide-11 {
@@ -1203,14 +1182,13 @@ body {
 
 /* ------------------------------------------
    1. GAMBAR DONE ICON
-   (x: Center, y: 293.02px, w: 159.36px, h: 159.36px)
    ------------------------------------------ */
 .slide11-container {
   position: absolute;
-  left: 45.85vw; /* x: 880.32px */
-  top: 27.131vh; /* y: 293.02px */
-  width: 8.3vw; /* w: 159.36px */
-  height: 14.755vh; /* h: 159.36px */
+  left: 45.85vw;
+  top: 27.131vh;
+  width: 8.3vw;
+  height: 14.755vh;
 
   transform: translateX(-50%) scale(0.92);
   z-index: 5;
@@ -1228,12 +1206,11 @@ body {
 
 /* ------------------------------------------
    2. TEKS CAPTION UTAMA (h1)
-   (x: Center, y: 512.57px, Inter Bold 70px)
    ------------------------------------------ */
 #slide-11 .slide-caption {
   position: absolute;
   left: 50%;
-  top: 47.46vh; /* y: 512.57px */
+  top: 47.46vh;
   transform: translateX(-50%);
 
   width: 100%;
@@ -1241,8 +1218,8 @@ body {
   text-align: center;
 
   font-family: "Inter", sans-serif;
-  font-size: clamp(32px, 3.646vw, 70px); /* 70px responsive */
-  font-weight: 700; /* Inter Bold */
+  font-size: clamp(32px, 3.646vw, 70px);
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
   margin: 0;
@@ -1254,17 +1231,15 @@ body {
 
 /* ------------------------------------------
    3. TOMBOL RESET
-   (w: 804px, h: 75px, x: Center, y: 697px,
-    Text: Center, Inter Bold 30px, Color: #4B61DD)
    ------------------------------------------ */
 #slide-11 .btn-reset {
   position: absolute;
   left: 50%;
-  top: 64.537vh; /* y: 697px */
+  top: 64.537vh;
   transform: translateX(-50%);
 
-  width: 41.875vw; /* w: 804px */
-  height: 6.944vh; /* h: 75px */
+  width: 41.875vw;
+  height: 6.944vh;
 
   /* Flexbox untuk memastikan tulisan tepat di tengah tombol */
   display: flex;
@@ -1272,13 +1247,13 @@ body {
   justify-content: center;
 
   font-family: "Inter", sans-serif;
-  font-size: clamp(18px, 1.5625vw, 30px); /* 30px responsive */
-  font-weight: 700; /* Inter Bold */
-  color: #4b61dd; /* Warna tulisan */
+  font-size: clamp(18px, 1.5625vw, 30px);
+  font-weight: 700;
+  color: #4b61dd;
 
-  background-color: #ffffff; /* Background putih/sesuai kebutuhan */
+  background-color: #ffffff;
   border: none;
-  border-radius: 12px; /* Silakan sesuaikan kebulatan sudutnya */
+  border-radius: 12px;
   cursor: pointer;
   z-index: 10;
 
