@@ -29,7 +29,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 10;
+  z-index: 100;
 }
 
 .logo-img {
@@ -51,7 +51,7 @@ body {
   height: 5.09vh;
   aspect-ratio: 1 / 1;
 
-  background: rgba(255, 255, 255, 0.2);
+  background: none;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -60,6 +60,7 @@ body {
   justify-content: center;
   padding: 0;
   pointer-events: auto;
+  z-index: 101;
   transition:
     background 0.3s ease,
     transform 0.2s ease;
@@ -71,8 +72,8 @@ body {
 }
 
 .home-icon {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -102,11 +103,11 @@ body {
 }
 
 .prev-arrow {
-  left: 1.5vw;
+  left: 4.2vw;
 }
 
 .next-arrow {
-  right: 1.5vw;
+  right: 4.2vw;
 }
 
 .nav-arrow:hover {
@@ -630,86 +631,98 @@ body {
 }
 
 /* ==========================================
-   SLIDE 6
+   SLIDE 6 CONTAINER
    ========================================== */
-
-/* 1. Pembungkus Utama Slide 6 */
-#slide-6.active {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-#slide-6 .slide6-container {
-  position: relative;
+#slide-6 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden; /* Mencegah video keluar dari layar */
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0.5s ease-in-out;
 }
 
-/* 2. Teks "Payroll disbursement" (x: 236px, y: 486px, size: 45px) */
-.disbursement-title {
-  position: absolute;
-  left: 12.29vw;
-  top: 45vh;
-  font-family: "Inter", sans-serif;
-  font-size: 2.34vw;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.15;
-  text-align: left;
-  margin: 0;
+#slide-6.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
   z-index: 10;
+}
 
-  /* Kondisi Awal Sebelum Aktif (Tersembunyi & Bergeser ke Kiri) */
+/* ==========================================
+   HERO VIDEO FULLSCREEN BACKGROUND
+   ========================================== */
+#slide-6 .disbursement-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1; /* Angka z-index kecil agar berada di belakang */
+  pointer-events: none; /* Mencegah video menghalangi klik pada tombol/teks */
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+#slide-6 .disbursement-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Memastikan video fullscreen tanpa terdistorsi/gepeng */
+  display: block;
+}
+
+/* ==========================================
+   KONTEN UTAMA (DI ATAS VIDEO)
+   ========================================== */
+#slide-6 .slide-content {
+  position: relative;
+  z-index: 2; /* Angka z-index lebih tinggi dari video (1) */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+#slide-6 .disbursement-title {
   opacity: 0;
   transform: translateX(-40px);
   will-change: transform, opacity;
-}
-
-/* 3. Hero Image Container (x: 672px, y: 187px, w: 993.39px, h: 705.67px) */
-.disbursement-hero {
-  position: absolute;
-  left: 35vw;
-  top: 17.31vh;
-  width: 51.74vw;
-  height: 65.34vh;
-  z-index: 5;
-
-  /* Kondisi Awal Sebelum Aktif (Tersembunyi & Agak Mencilik/Zoom Out) */
-  opacity: 0;
-  transform: scale(0.92);
-  will-change: transform, opacity;
-}
-
-.disbursement-hero img,
-.disbursement-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
 }
 
 /* ==========================================
    TRIGGER ANIMASI SAAT SLIDE 6 AKTIF
    ========================================== */
 
-/* Animasi Teks: Slide in dari Kiri (Durasi: 0.8s) */
-#slide-6.active .disbursement-title {
-  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
-}
-
-/* Animasi Hero Image: Zoom In & Fade In (Durasi: 0.9s, Delay: 0.3s) */
 #slide-6.active .disbursement-hero {
-  animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+  animation: none !important;
+  /* animation: zoomInHero 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards; */
 }
 
-/* ==========================================
-   KEYFRAMES ANIMASI
-   ========================================== */
+#slide-6.active .disbursement-title {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+}
 
-/* Keyframe Teks */
+/* Keyframes */
+@keyframes zoomInHero {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -718,18 +731,6 @@ body {
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-/* Keyframe Gambar Hero */
-@keyframes zoomInHero {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 

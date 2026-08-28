@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.getElementById("nextBtn");
   const footer = document.querySelector("footer");
   const resetBtn = document.getElementById("resetBtn");
+  const logo = document.querySelector(".logo-img");
 
   // --- FUNGI PENGATUR VISIBILITAS TOMBOL NAVIGASI ---
   function updateNavigationVisibility(index) {
@@ -44,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       prevBtn.style.display = "block";
       nextBtn.style.display = "none";
       footer.style.display = "none";
+    } else if (index === 5) {
+      logo.style.display = "none";
     }
     // Halaman 3 sampai 9: Ada Semua Navigasi (Home, Left Arrow, Right Arrow)
     else {
@@ -51,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       prevBtn.style.display = "block";
       nextBtn.style.display = "block";
       footer.style.display = "none";
+      logo.style.display = "block";
     }
   }
 
@@ -74,6 +78,39 @@ document.addEventListener("DOMContentLoaded", () => {
   //   }
   // }
 
+  function slide6Helper() {
+    const logo = document.querySelector(".logo-img");
+    const slide6Video = document.querySelector("#slide-6 video");
+
+    logo.style.display = "none";
+
+    if (slide6Video) {
+      // const startTime = 0.5; // Mulai dari detik 0.5
+      const endTime = 15; // Berakhir pada detik 12.015 (12s + 15ms)
+
+      slide6Video.loop = false;
+      slide6Video.currentTime = 0; // Set posisi waktu awal
+
+      // Paksa video memutar
+      slide6Video.play().catch(() => {});
+
+      // Pantau pergerakan durasi video
+      slide6Video.ontimeupdate = () => {
+        // Jika waktu video mencapai atau melewati endTime
+        if (slide6Video.currentTime >= endTime) {
+          slide6Video.ontimeupdate = null; // Hapus event listener
+          slide6Video.pause(); // Hentikan video
+
+          if (currentSlideIndex === 5) {
+            goToSlide(6); // Pindah otomatis ke Slide 7 (Index 6)
+            logo.style.display = "block";
+            startAutoPlay();
+          }
+        }
+      };
+    }
+  }
+
   function goToSlide(index) {
     // 1. Sembunyikan seluruh slide
     slides.forEach((s) => s.classList.remove("active"));
@@ -85,9 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Update tombol navigasi
     updateNavigationVisibility(currentSlideIndex);
 
-    // 4. Jalankan animasi Slide 4 (Index 3 = Slide 4)
+    // 4. Jalankan animasi Slide 4 (Index 3)
     if (currentSlideIndex === 3) {
       triggerSlide4Animation();
+    }
+
+    // 5. Penanganan Khusus Slide 6 (Index 5)
+    // Penanganan Khusus Slide 6 (Index 5)
+    if (currentSlideIndex === 5) {
+      // Hentikan timer autoPlay reguler
+      clearInterval(autoPlayTimer);
+
+      slide6Helper();
+    } else if (currentSlideIndex !== 0 && currentSlideIndex !== 5) {
+      startAutoPlay();
     }
   }
 
@@ -168,14 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
       clearInterval(autoPlayTimer);
-      if (currentSlideIndex > 0) goToSlide(currentSlideIndex - 1);
+      if (currentSlideIndex > 0) {
+        goToSlide(currentSlideIndex - 1); // goToSlide akan otomatis memanggil slide6Helper() jika masuk ke index 5
+      }
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       clearInterval(autoPlayTimer);
-      if (currentSlideIndex < totalSlides - 1) goToSlide(currentSlideIndex + 1);
+      if (currentSlideIndex < totalSlides - 1) {
+        goToSlide(currentSlideIndex + 1); // goToSlide akan otomatis memanggil slide6Helper() jika masuk ke index 5
+      }
     });
   }
 

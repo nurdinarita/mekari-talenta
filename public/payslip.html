@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animasi Flow Line Node</title>
+    <!-- Memanggil file CSS yang berada di folder assets/css/ -->
+    <link rel="stylesheet" href="assets/css/payslip.css" />
+  </head>
+  <body>
+    <!-- Bagian Slide Animasi -->
+    <section class="slide" id="slide-disbursement">
+      <div class="flow-container">
+        <!-- LAYER SVG UNTUK GARIS DAN BULATAN MENGALIR -->
+        <svg
+          class="flow-svg"
+          viewBox="0 0 1920 1080"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <!-- Gradien warna garis -->
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2" />
+              <stop offset="50%" stop-color="#ffffff" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+            </linearGradient>
+          </defs>
+
+          <!-- 1. Garis dari Payslip ke Logo Tengah -->
+          <path
+            id="path-payslip-to-logo"
+            class="connection-line"
+            d="M 420 540 C 650 540, 750 540, 960 540"
+          />
+
+          <!-- 2. Garis dari Logo Tengah ke Bank A (2 Garis) -->
+          <path
+            id="path-logo-to-bankA-1"
+            class="connection-line"
+            d="M 960 540 C 1150 480, 1300 320, 1500 320"
+          />
+          <path
+            id="path-logo-to-bankA-2"
+            class="connection-line"
+            d="M 960 540 C 1180 500, 1320 380, 1500 380"
+          />
+
+          <!-- 3. Garis dari Logo Tengah ke Bank B (3 Garis) -->
+          <path
+            id="path-logo-to-bankB-1"
+            class="connection-line"
+            d="M 960 540 C 1180 580, 1320 660, 1500 660"
+          />
+          <path
+            id="path-logo-to-bankB-2"
+            class="connection-line"
+            d="M 960 540 C 1150 600, 1300 720, 1500 720"
+          />
+          <path
+            id="path-logo-to-bankB-3"
+            class="connection-line"
+            d="M 960 540 C 1120 620, 1280 780, 1500 780"
+          />
+
+          <!-- BULATAN MENGALIR (DOTS) -->
+          <!-- Dot dari Payslip ke Logo Tengah -->
+          <circle class="flow-dot dot-p1" r="7" fill="#ffffff" />
+          <circle class="flow-dot dot-p2" r="7" fill="#ffffff" />
+
+          <!-- Dots menuju Bank A (2 Lintasan) -->
+          <circle class="flow-dot dot-a1" r="7" fill="#4cd964" />
+          <circle class="flow-dot dot-a2" r="7" fill="#4cd964" />
+
+          <!-- Dots menuju Bank B (3 Lintasan) -->
+          <circle class="flow-dot dot-b1" r="7" fill="#4cd964" />
+          <circle class="flow-dot dot-b2" r="7" fill="#4cd964" />
+          <circle class="flow-dot dot-b3" r="7" fill="#4cd964" />
+        </svg>
+
+        <!-- LAYER ASET GAMBAR (IMG) -->
+        <!-- 1. Node Kiri (Payslip) -->
+        <div class="node-item node-payslip">
+          <img src="assets/images/payslip-card.png" alt="Payslip" />
+        </div>
+
+        <!-- 2. Node Tengah (Logo Utama / Mekari) -->
+        <div class="node-item node-logo">
+          <img src="assets/images/logo-center.png" alt="Logo Utama" />
+        </div>
+
+        <!-- 3. Node Kanan (Bank A & Bank B) -->
+        <div class="bank-group">
+          <!-- Target Bank A -->
+          <div class="node-item node-bank bank-a">
+            <img src="assets/images/bank-a.png" alt="Bank A" />
+          </div>
+
+          <!-- Target Bank B -->
+          <div class="node-item node-bank bank-b">
+            <img src="assets/images/bank-b.png" alt="Bank B" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

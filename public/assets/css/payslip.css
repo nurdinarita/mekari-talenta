@@ -1,0 +1,144 @@
+/* Container Utama Slide */
+#slide-disbursement {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #b8282b; /* Menyesuaikan tema merah Mekari Talenta */
+  overflow: hidden;
+}
+
+.flow-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* SVG Background untuk Garis */
+.flow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.connection-line {
+  fill: none;
+  stroke: url(#lineGrad);
+  stroke-width: 3px;
+  stroke-dasharray: 8 6; /* Garis putus-putus mengalir */
+}
+
+/* ==========================================
+   POSISI ASET GAMBAR (IMG NODES)
+   ========================================== */
+
+.node-item {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0.8vw 1.5vw rgba(0, 0, 0, 0.25));
+}
+
+/* Payslip Kiri (x: ~20vw, y: 50vh) */
+.node-payslip {
+  top: 50vh;
+  left: 18vw;
+  width: 14vw;
+}
+
+/* Logo Tengah (x: 50vw, y: 50vh) */
+.node-logo {
+  top: 50vh;
+  left: 50vw;
+  width: 11vw;
+}
+
+/* Bank Group Kanan (x: ~80vw) */
+.bank-group {
+  position: absolute;
+  right: 12vw;
+  top: 50vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12vh;
+  z-index: 3;
+}
+
+.node-bank {
+  position: relative;
+  transform: none;
+  width: 13vw;
+}
+
+/* ==========================================
+   ANIMASI BULATAN MENGALIR (CSS offset-path)
+   ========================================== */
+
+.flow-dot {
+  z-index: 2;
+  filter: drop-shadow(0 0 6px #ffffff);
+}
+
+/* --- Jalur 1: Payslip ke Logo Tengah --- */
+.dot-p1 {
+  offset-path: path("M 420 540 C 650 540, 750 540, 960 540");
+  animation: flowAlong 1.8s infinite linear;
+}
+.dot-p2 {
+  offset-path: path("M 420 540 C 650 540, 750 540, 960 540");
+  animation: flowAlong 1.8s infinite linear 0.9s;
+}
+
+/* --- Jalur 2: Logo Tengah ke Bank A (2 Garis) --- */
+.dot-a1 {
+  offset-path: path("M 960 540 C 1150 480, 1300 320, 1500 320");
+  animation: flowAlong 1.5s infinite linear 0.2s;
+}
+.dot-a2 {
+  offset-path: path("M 960 540 C 1180 500, 1320 380, 1500 380");
+  animation: flowAlong 1.5s infinite linear 0.7s;
+}
+
+/* --- Jalur 3: Logo Tengah ke Bank B (3 Garis) --- */
+.dot-b1 {
+  offset-path: path("M 960 540 C 1180 580, 1320 660, 1500 660");
+  animation: flowAlong 1.6s infinite linear 0.1s;
+}
+.dot-b2 {
+  offset-path: path("M 960 540 C 1150 600, 1300 720, 1500 720");
+  animation: flowAlong 1.6s infinite linear 0.5s;
+}
+.dot-b3 {
+  offset-path: path("M 960 540 C 1120 620, 1280 780, 1500 780");
+  animation: flowAlong 1.6s infinite linear 0.9s;
+}
+
+/* Keyframe Pergerakan Aliran */
+@keyframes flowAlong {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
