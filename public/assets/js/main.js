@@ -119,6 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
     currentSlideIndex = index;
     slides[currentSlideIndex].classList.add("active");
 
+    if (currentSlideIndex === 0) {
+      slides[currentSlideIndex].style.background =
+        "linear-gradient(180deg, #BC3535 38%, #561818 100%)";
+    } else {
+      slides[currentSlideIndex].style.background = "#b8282b";
+    }
+
     // 3. Update tombol navigasi
     updateNavigationVisibility(currentSlideIndex);
 

@@ -134,6 +134,7 @@ body {
 }
 
 .slide {
+  background: linear-gradient(180deg, #bc3535 38%, #561818 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -152,29 +153,35 @@ body {
 }
 .title {
   position: absolute;
-  top: 40.37vh;
-  left: 11.87vw;
-  width: 32.03vw;
-  height: 6.94vh;
-  font-size: 3.125vw;
+  top: 30.648vh; /* y: 331px */
+  left: 9.531vw; /* x: 183px */
+  width: 34.792vw; /* w: 668px */
+  height: 22.222vh; /* h: 240px */
+
+  font-size: 5.125vw;
   font-weight: 500;
-  line-height: 6.94vh;
+  line-height: 120%;
   color: #ffffff;
+  margin: 0;
 }
 
 /* --- TOMBOL RUN PAYROLL --- */
 .btn-payroll {
   position: absolute;
-  width: 32.03vw;
-  top: 51.85vh;
-  left: 11.87vw;
-  padding: 1.48vh 0;
-  text-align: center;
+  top: 56.574vh; /* y: 611px */
+  left: 9.583vw; /* x: 184px */
+  width: 34.739vw; /* w: 667px */
+  height: 9.259vh; /* h: 100px */
 
-  font-size: 1.04vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  font-size: 1.2vw;
   font-weight: 600;
-  background-color: #ffffff;
-  color: #4b61dd;
+  background-color: #4b61dd; /* Background Blue */
+  color: #ffffff; /* Text White */
   border: none;
   border-radius: 0.62vw;
   cursor: pointer;
@@ -184,7 +191,7 @@ body {
 }
 
 .btn-payroll:hover {
-  background-color: #f8fafc;
+  background-color: #3b4eba;
   transform: translateY(-0.3vh) scale(1.01);
 }
 
@@ -1302,15 +1309,21 @@ body {
 /* --- FOOTER --- */
 .footer {
   position: absolute;
-  top: 87.04vh;
-  left: 85.99vw;
+  top: 79.259vh; /* y: 856px */
+  left: 9.583vw; /* x: 184px */
+  width: 18.75vw; /* w: 360px */
+  height: 3.056vh; /* h: 33px */
   z-index: 10;
 }
 
 .footer-link {
   display: flex;
   align-items: center;
-  gap: 0.6vw;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 0.677vw; /* spacing: 13px */
+
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-family: "Inter", sans-serif;
@@ -1323,12 +1336,13 @@ body {
 }
 
 .footer-icon {
-  width: 1.4vw;
-  height: 1.4vw;
+  width: 4.271vw; /* w: 82px */
+  height: 1.481vh; /* h: 16px */
   display: inline-block;
+  object-fit: contain;
 }
 
 .footer-link:hover {
   opacity: 1;
-  transform: translateX(0.2vw);
+  transform: translate;
 }
