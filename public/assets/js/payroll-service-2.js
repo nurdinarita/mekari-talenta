@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(autoPlayTimer);
       if (currentSlideIndex > 0) {
         goToSlide(currentSlideIndex - 1);
+        startAutoPlay();
       }
     });
   }
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(autoPlayTimer);
       if (currentSlideIndex < totalSlides - 1) {
         goToSlide(currentSlideIndex + 1);
+        startAutoPlay();
       }
     });
   }
