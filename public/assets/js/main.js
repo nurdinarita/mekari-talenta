@@ -45,9 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       prevBtn.style.display = "block";
       nextBtn.style.display = "none";
       footer.style.display = "none";
-    } else if (index === 5) {
-      logo.style.display = "none";
     }
+    // else if (index === 5) {
+    //   logo.style.display = "none";
+    // }
     // Halaman 3 sampai 9: Ada Semua Navigasi (Home, Left Arrow, Right Arrow)
     else {
       homeBtn.style.display = "flex";
@@ -82,11 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const logo = document.querySelector(".logo-img");
     const slide6Video = document.querySelector("#slide-6 video");
 
-    logo.style.display = "none";
+    logo.style.display = "block";
 
     if (slide6Video) {
       // const startTime = 0.5; // Mulai dari detik 0.5
-      const endTime = 15; // Berakhir pada detik 12.015 (12s + 15ms)
+      const endTime = 12; // Berakhir pada detik 12.015 (12s + 15ms)
 
       slide6Video.loop = false;
       slide6Video.currentTime = 0; // Set posisi waktu awal
