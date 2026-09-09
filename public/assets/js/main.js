@@ -1,13 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const runPayrollBtn = document.getElementById("runPayrollBtn");
-
-//   if (runPayrollBtn) {
-//     runPayrollBtn.addEventListener("click", () => {
-//       alert("Tombol Run Payroll diklik! Siap dihubungkan ke API Node.js.");
-//     });
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   const totalSlides = slides.length;
@@ -58,26 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       logo.style.display = "block";
     }
   }
-
-  // Switch Slide Function
-  // function goToSlide(index) {
-  //   slides.forEach((s) => s.classList.remove("active"));
-  //   currentSlideIndex = index;
-  //   slides[currentSlideIndex].classList.add("active");
-
-  //   // Perbarui Tampilan Tombol Navigasi
-  //   updateNavigationVisibility(currentSlideIndex);
-
-  //   // Animasi Khusus Slide 2
-  //   if (currentSlideIndex === 1) {
-  //     animateCounter("totalPayrollText", 0, 13000000, 1500);
-  //   }
-
-  //   // Animasi Khusus Slide 3 (Contoh)
-  //   if (currentSlideIndex === 2) {
-  //     animatePercentage("progressText", 0, 100, 2000);
-  //   }
-  // }
 
   function slide6Helper() {
     const logo = document.querySelector(".logo-img");
@@ -142,6 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(autoPlayTimer);
 
       slide6Helper();
+    } else if (currentSlideIndex === totalSlides - 1) {
+      clearInterval(autoPlayTimer);
+      lastSlideTimeout = setTimeout(() => {
+        goToSlide(0); // Kembali ke Home (Slide 1)
+        footer.style.display = "block";
+      }, 60000);
     } else if (currentSlideIndex !== 0 && currentSlideIndex !== 5) {
       startAutoPlay();
     }
@@ -190,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         clearInterval(autoPlayTimer);
       }
-    }, 3000); // Otomatis berpindah setiap 3 detik
+    }, 4000); // Otomatis berpindah setiap 3 detik
   }
 
   // Set tampilan navigasi awal untuk Slide 1
@@ -244,11 +220,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function triggerSlide4Animation() {
     const percentText = document.getElementById("payrollPercentText");
     const circleBar = document.getElementById("payrollProgressCircle");
+    const employeeProgressText = document.getElementById(
+      "employeeProgressText",
+    );
 
     if (!percentText || !circleBar) return;
 
     const targetPercent = 100;
-    const duration = 2000; // Durasi berjalan 2 detik
+    let currentEmployee = 1;
+    const totalEmployees = 100;
+    const duration = 3000; // Durasi berjalan 2 detik
     const circumference = 326.72; // Keliling r=52
     let startTimestamp = null;
 
@@ -259,6 +240,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Hitung persentase berjalan
       const currentPercent = Math.floor(progress * targetPercent);
       percentText.innerText = `${currentPercent}%`;
+
+      // Hitung Karyawan
+      // if (employeeProgressText) {
+      //   // Hasil di HTML: "1/50"
+      //   employeeProgressText.innerText = `${currentPercent / 2} / ${totalEmployees}`;
+      // }
 
       // Hitung lingkar lingkaran berjalan
       const offset =

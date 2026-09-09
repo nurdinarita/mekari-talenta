@@ -153,12 +153,12 @@ body {
 }
 .title {
   position: absolute;
-  top: 30.648vh; /* y: 331px */
+  top: 32.648vh; /* y: 331px */
   left: 9.531vw; /* x: 183px */
   width: 34.792vw; /* w: 668px */
   height: 22.222vh; /* h: 240px */
 
-  font-size: 5.125vw;
+  font-size: 4.25vw;
   font-weight: 500;
   line-height: 120%;
   color: #ffffff;
@@ -621,6 +621,21 @@ body {
   font-size: 2vw;
   font-weight: 700;
   color: #111827;
+
+  font-variant-numeric: tabular-nums;
+}
+
+#employeeProgressText {
+  display: inline-block;
+  min-width: 3vw;
+  text-align: center;
+  font-variant-numeric: tabular-nums; /* Mencegah getaran pada angka karyawan */
+
+  /* --- PERBAIKAN GETARAN --- */
+  vertical-align: bottom;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: contents;
 }
 
 /* TEKS PROSES BAWAH CIRCLE */
