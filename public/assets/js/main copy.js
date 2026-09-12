@@ -24,16 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Halaman 2 (Index 1): Ada Home, Tanpa Left Arrow, Ada Right Arrow
     else if (index === 1) {
-      logo.style.display = "none";
       homeBtn.style.display = "flex";
       prevBtn.style.display = "none";
-      nextBtn.style.display = "none";
+      nextBtn.style.display = "block";
       footer.style.display = "none";
     }
     // Halaman Terakhir / Slide 10 (Index totalSlides - 1): Ada Home, Ada Left Arrow, Tanpa Right Arrow
     else if (index === totalSlides - 1) {
       homeBtn.style.display = "flex";
-      prevBtn.style.display = "none";
+      prevBtn.style.display = "block";
       nextBtn.style.display = "none";
       footer.style.display = "none";
     }
@@ -43,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Halaman 3 sampai 9: Ada Semua Navigasi (Home, Left Arrow, Right Arrow)
     else {
       homeBtn.style.display = "flex";
-      prevBtn.style.display = "none";
-      nextBtn.style.display = "none";
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
       footer.style.display = "none";
       logo.style.display = "block";
     }
@@ -54,10 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const logo = document.querySelector(".logo-img");
     const slide6Video = document.querySelector("#slide-6 video");
 
-    logo.style.display = "none";
+    logo.style.display = "block";
 
     if (slide6Video) {
-      const endTime = 38;
+      // const startTime = 0.5; // Mulai dari detik 0.5
+      const endTime = 12; // Berakhir pada detik 12.015 (12s + 15ms)
 
       slide6Video.loop = false;
       slide6Video.currentTime = 0; // Set posisi waktu awal
@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
           slide6Video.ontimeupdate = null; // Hapus event listener
           slide6Video.pause(); // Hentikan video
 
-          if (currentSlideIndex === 1) {
-            goToSlide(2); // Pindah otomatis ke Slide 7 (Index 6)
+          if (currentSlideIndex === 5) {
+            goToSlide(6); // Pindah otomatis ke Slide 7 (Index 6)
             logo.style.display = "block";
-            // startAutoPlay();
+            startAutoPlay();
           }
         }
       };
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 5. Penanganan Khusus Slide 6 (Index 5)
     // Penanganan Khusus Slide 6 (Index 5)
-    if (currentSlideIndex === 1) {
+    if (currentSlideIndex === 5) {
       // Hentikan timer autoPlay reguler
       clearInterval(autoPlayTimer);
 
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (runPayrollBtn) {
     runPayrollBtn.addEventListener("click", () => {
       goToSlide(1); // Langsung berpindah ke Slide 2
-      // startAutoPlay(); // Mulai auto-play
+      startAutoPlay(); // Mulai auto-play
     });
   }
 
